@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Side from "./Side"
 
 class Order extends Component {
   state = {
@@ -6,8 +7,18 @@ class Order extends Component {
   }
 
   handleClick = () => {
-    this.state.isClicked = !this.state.isClicked
+    this.setState(prev => {
+      return {
+        isClicked: !prev.isClicked
+      }
+    })
   }
+
+  // renderSides = () => {
+  //   return this.props.sides.map((thisSide, index) => {
+  //     return <Side key={`${thisSide}${index}`} side={thisSide}/>
+  //   })
+  // }
 
   render() {
     return (
@@ -36,7 +47,8 @@ class Order extends Component {
           }
 
           { /* this is just a shortcut to writing this.state.isClicked ? <Side sides={this.props.sides} /> : null */ }
-          { this.state.isClicked && <Side sides={this.props.sides} /> }
+          { this.state.isClicked ? <Side sides={this.props.sides} />: null }
+          {/* { this.state.isClicked && <Side sides={this.props.sides} /> } */}
 
         </div>
       </div>
