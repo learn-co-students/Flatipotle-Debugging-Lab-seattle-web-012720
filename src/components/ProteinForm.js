@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const ProteinForm = () => {
+const ProteinForm = (props) => {
   return (
     <Fragment>
       <h1><label htmlFor="protein">Protein</label></h1>
@@ -18,7 +18,7 @@ const ProteinForm = () => {
             <img src={ require('../images/protein/barbacoa.png') } height="100px" width="100px" alt="barbacoa" />
             <label htmlFor="barbacoa">Barbacoa</label>
           </div>
-        </div>
+        </div> 
 
         <div className="field">
           <div className="ui checkbox">
