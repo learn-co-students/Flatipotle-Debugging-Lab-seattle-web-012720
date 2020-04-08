@@ -12,24 +12,23 @@ const DEFAULT_STATE = {
 }
 
 class Form extends Component {
+
   state = {
     ...DEFAULT_STATE
   }
 
-  handleSubmit() {
+  handleSubmit = (event) => {
     event.preventDefault()
     document.getElementById("order-form").reset()
     this.props.addOrder(this.state)
-
     this.setState({
       ...DEFAULT_STATE
     })
   }
 
-  handleChange() {
-    const itemType = event.target.name
+  handleChange = (event) => {
+    const itemType = event.target.name //protein
     const item = event.target.value
-
     !this.state[`${itemType}`].includes(item) ?
       this.setState({
         [itemType]: this.state[`${itemType}`].concat(item)
